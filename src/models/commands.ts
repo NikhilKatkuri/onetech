@@ -4,6 +4,7 @@ type CMD = {
   excuter?:string;
   description?: string;
   default?: boolean;
+  projectDir?:string;
 };
 
  

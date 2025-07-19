@@ -19,7 +19,18 @@ for (const data of TechData) {
       try {
         writeFileSync(
           path.join(location, "onetech.js"),
-          `// code here for ${d} to operate`
+          `// code here for app-cra to operate
+import path from "path";
+import chalk from "chalk";
+
+ 
+// Get arguments from CLI
+const args = process.argv.slice(2);
+ 
+console.log(args[0]??"hi")
+
+
+`
         );
         console.log(chalk.blue(`code here for ${d} to operate`));
       } catch (error) {
@@ -40,7 +51,18 @@ for (const data of TechData) {
         try {
           writeFileSync(
             path.join(location, "onetech.js"),
-            `// code here for ${d} to operate`
+            `// code here for app-cra to operate
+import path from "path";
+import chalk from "chalk";
+
+ 
+// Get arguments from CLI
+const args = process.argv.slice(2);
+ 
+console.log(args[0]??"hi")
+
+
+`
           );
           console.log(chalk.blue(`code here for ${d} to operate`));
         } catch (error) {

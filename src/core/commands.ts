@@ -3,9 +3,12 @@ import { CMD } from "../models/commands.js";
 import { TechConfig, TechEntry } from "../models/techstack.js";
 import packagejson from "../../package.json" with { type: "json" };
 import chalk from "chalk";
-import { templateDir } from "./file.js";
+import { templateDir, userPath, userPathValidate } from "./file.js";
 import path from "path";
 import TechData from "../data/TechStack.js";
+import { exec } from "child_process";
+import prompt from "./promt.js";
+import { UserPathValidate } from "../models/file.js";
 
 // Displays help message for the CLI usage
 function help() {
@@ -68,14 +71,77 @@ function removeFlag(name: string): string {
   return name.replace(/^--/, "");
 }
 
+/**
+ * Prompts the user to enter a valid project name (directory name).
+ *
+ * - Starts with an initial name provided via CLI.
+ * - Validates if the corresponding path is empty (or doesn't exist).
+ * - If the path is not empty, recursively prompts the user until
+ *   an available directory name is provided.
+ * - Exits the process if the user provides no input.
+ *
+ * @param initial - The initial project name provided via CLI.
+ * @returns A valid (empty or non-existing) project directory name.
+ */
+
+async function getValidProjectName(initial: string): Promise<string> {
+  let currentDir = initial;
+
+  while (true) {
+    const p: UserPathValidate = await userPathValidate(userPath, currentDir);
+
+    if (p.isEmpty) {
+      return currentDir;
+    }
+
+    console.log(chalk.red(p.location) + " is not empty.");
+
+    const newInput = await new prompt().projectname();
+    if (!newInput) {
+      console.log(chalk.red("No name provided. Exiting."));
+      process.exit(1);
+    }
+
+    currentDir = newInput;
+  }
+}
+
+/**
+ * The `commands` class is responsible for parsing CLI arguments,
+ * validating inputs, and executing appropriate actions for the
+ * `create-onetech-app` CLI tool.
+ *
+ * 🚀 Responsibilities:
+ * - Parse command-line arguments (e.g., project name, flags, template config).
+ * - Handle special commands like `--help`, `--version`, and `--verbose`.
+ * - Validate the provided project directory (prompt if already exists).
+ * - Validate the selected stack configuration (base, language, template).
+ * - Construct the path to the selected template and execute its `onetech.js`.
+ *
+ * 📦 Command types handled:
+ * - Version (`-v`, `--version`)
+ * - Help (`--h`, `--help`)
+ * - Verbose logging (`--v`, `--verbose`)
+ * - Project scaffolding with options like:
+ *   `create-onetech-app <project-name> --base=vite --lang=ts --template=app-tw`
+ *
+ * 🧠 Design Notes:
+ * - All user interactions (directory checks, prompts) are async.
+ * - The CLI can dynamically execute template scripts via `child_process.exec`.
+ * - Structured for future extension with subcommands or plugin systems.
+ *
+ * 🔄 Lifecycle:
+ * 1. Constructor takes `process.argv.slice(2)`
+ * 2. `init()` performs async parsing, prompting, and validation
+ * 3. `run()` executes the appropriate command logic
+ */
+
 class commands {
   private cmdCli: CMD | undefined = undefined;
-  constructor(private args: any) {
-    this.parseArgs();
-  }
+  constructor(private args: any) {}
 
   // Parses CLI arguments and configures internal state accordingly
-  private parseArgs() {
+  public async parseArgs() {
     const Args: string[] = this.args;
 
     // Case 1: No arguments passed
@@ -111,6 +177,8 @@ class commands {
       // Extract project name and options
 
       const [dir, ...tools] = cliArgs;
+
+      let valDir: string = await getValidProjectName(dir);
 
       // Initialize configuration holder
 
@@ -155,7 +223,6 @@ class commands {
       // Construct the path to use for scaffolding the project
       excutionPath = path.join(
         excutionPath,
-        dir,
         techConfig.base,
         techConfig.lang,
         techConfig.template
@@ -165,6 +232,7 @@ class commands {
         name: "main",
         cmd: [],
         excuter: excutionPath,
+        projectDir: valDir,
       };
     }
   }
@@ -181,7 +249,15 @@ class commands {
       help();
     }
     if (this.cmdCli.name === "main") {
-      console.log(this.cmdCli.excuter);
+      if (this.cmdCli) {
+        const location = path.join(this.cmdCli.excuter as string, "onetech.js");
+        exec(`node "${location}" ${this.cmdCli.projectDir}`, (error) => {
+          if (error) {
+            console.error(`Execution error: ${error.message}`);
+            return;
+          }
+        });
+      }
     }
   }
 }
