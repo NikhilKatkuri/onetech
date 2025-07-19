@@ -1,0 +1,57 @@
+{
+  // Compiler Options: Core settings for TypeScript compilation
+  "compilerOptions": {
+    // Target JavaScript version for compiled output
+    // Purpose: Ensures compatibility with modern Node.js versions supporting ES Modules
+    "target": "ES2020",
+
+    // Module system for compiled output
+    // Purpose: Outputs ES Modules (import/export syntax) for Node.js compatibility with "type": "module"
+    "module": "NodeNext",
+
+    // Output directory for compiled .js files
+    // Purpose: Organizes compiled code in a separate folder for clean project structure
+    "outDir": "./dist",
+
+    // Root directory of source .ts files
+    // Purpose: Specifies where TypeScript looks for source files, maintaining folder structure in output
+    "rootDir": "./src",
+
+    // Enables strict type-checking for better code safety
+    // Purpose: Catches type errors early, enforcing robust type discipline
+    "strict": true,
+
+    // Allows default imports from modules with no default export
+    // Purpose: Simplifies imports from non-TypeScript modules and improves interoperability
+    "esModuleInterop": true,
+
+    // Skips type checking for .d.ts files
+    // Purpose: Speeds up compilation by ignoring declaration files in node_modules
+    "skipLibCheck": true,
+
+    // Enforces consistent file name casing
+    // Purpose: Prevents case-sensitivity issues on different operating systems
+    "forceConsistentCasingInFileNames": true,
+
+    // Uses Node.js module resolution for ES Modules
+    // Purpose: Ensures imports like './utils/index' resolve to './utils/index.ts' (and .js after compilation)
+    "moduleResolution": "NodeNext",
+
+    // Allows importing JSON files
+    // Purpose: Enables importing .json files as modules (e.g., import config from './config.json')
+    "resolveJsonModule": true,
+
+    // Ensures each file can be transpiled independently
+    // Purpose: Improves compatibility with tools like esbuild and supports faster builds
+    "isolatedModules": true
+    
+  },
+
+  // File Inclusion: Specifies which files to compile
+  // Purpose: Tells TypeScript which files to process, ensuring only relevant code is compiled
+  "include": ["src/**/*"],
+
+  // File Exclusion: Specifies which files to ignore
+  // Purpose: Excludes build artifacts and dependencies to avoid unnecessary compilation
+  "exclude": ["node_modules", "dist","templates","achieve"]
+}

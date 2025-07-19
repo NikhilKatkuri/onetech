@@ -1,0 +1,56 @@
+{
+  "name": "onetech",
+  "version": "1.0.0",
+  "description": "CLI to quickly set up React projects with popular templates and tools.",
+  "main": "./dist/cli/main.js",
+  "type": "module",
+  "bin": {
+    "create-onetech-app": "./dist/cli/main.js"
+  },
+  "scripts": {
+    "test": "npx tsx src/core/file.ts",
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "clean:build": "rimraf dist && npm run build",
+    "dev:link": "npm run clean:build && npm link",
+    "start": "node ./dist/cli/main.js",
+    "push": "git add . && git commit -m \"🚀 feat(cli): bootstrap onetech CLI with initial command structure and TypeScript setup\" && git push origin main"
+  },
+  "keywords": [
+    "onetech",
+    "cli",
+    "create-app",
+    "javascript",
+    "typescript",
+    "react",
+    "vite",
+    "webpack",
+    "cra",
+    "template-generator",
+    "frontend",
+    "fullstack",
+    "project-scaffold",
+    "automation",
+    "boilerplate",
+    "starter-kit",
+    "developer-tools",
+    "open-source"
+  ],
+  "author": "NIKHIL KATKURI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@types/node": "^24.0.14",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "inquirer": "^12.7.0"
+  }
+}
