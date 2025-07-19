@@ -147,7 +147,7 @@ class commands {
     // Case 1: No arguments passed
     if (Args.length === 0) {
       this.cmdCli = undefined;
-      return;
+      return false;
     }
     // Case 2: Only one command passed (e.g, --help or --version)
     else if (Args.length === 1) {
@@ -156,6 +156,7 @@ class commands {
       );
 
       this.cmdCli = news;
+        return false;
     }
     // Case 3: More than one argument, treat as project setup
     else if (Args.length >= 1) {
@@ -234,30 +235,75 @@ class commands {
         excuter: excutionPath,
         projectDir: valDir,
       };
+
+      if (verbose) {
+        console.log(chalk.cyan("→ Parsed Command:"), this.cmdCli.name);
+        console.log(
+          chalk.cyan("→ Executing script at:"),
+          this.cmdCli.projectDir
+        );
+      }
+      return verbose;
     }
   }
   // Execute CLI command if matched
-  public run() {
+  public async run(verbose: boolean = false) {
     if (!this.cmdCli) {
-      console.log(chalk.red("no command found!\n"));
+      console.log(chalk.red("No command found!\n"));
       help();
       return;
     }
-    if (this.cmdCli.name === "version")
-      console.log(`using version : ${chalk.green(packagejson.version)}`);
-    if (this.cmdCli.name === "help") {
-      help();
+
+    const { name, excuter, projectDir } = this.cmdCli;
+
+    if (verbose) {
+      console.log(chalk.blueBright("→ Running CLI command:"), name);
     }
-    if (this.cmdCli.name === "main") {
-      if (this.cmdCli) {
-        const location = path.join(this.cmdCli.excuter as string, "onetech.js");
-        exec(`node "${location}" ${this.cmdCli.projectDir}`, (error) => {
+
+    switch (name) {
+      case "version":
+        console.log(`Using version: ${chalk.green(packagejson.version)}`);
+        break;
+
+      case "help":
+        help();
+        break;
+
+      case "main":
+        if (!excuter || !projectDir) {
+          console.log(chalk.red("Invalid executor path or project directory."));
+          return;
+        }
+
+        const location = path.join(excuter, "onetech.js");
+        const command = `node "${location}" ${projectDir}`;
+
+        if (verbose) {
+          console.log(chalk.cyan("→ Executor path:"), excuter);
+          console.log(chalk.cyan("→ Project directory:"), projectDir);
+          console.log(chalk.cyan("→ Executing command:"), command);
+        }
+
+        await exec(command, (error, stdout, stderr) => {
           if (error) {
-            console.error(`Execution error: ${error.message}`);
+            console.error(chalk.red(`Execution error: ${error.message}`));
             return;
           }
+
+          if (verbose && stdout) {
+            console.log(chalk.gray("→ Script Output:\n") + stdout);
+          }
+
+          if (stderr) {
+            console.error(chalk.yellow("→ Script Error:\n") + stderr);
+          }
         });
-      }
+        break;
+
+      default:
+        console.log(chalk.red(`Unknown command: ${name}`));
+        help();
+        break;
     }
   }
 }

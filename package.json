@@ -15,7 +15,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add . && git commit -m \"feat: add recursive project folder validation and document CLI command structure\" && git push origin main"
+    "push": "git add . && git commit -m \"fix: add verbose output support to command executor in CLI run method\" && git push origin main"
   },
   "keywords": [
     "onetech",
