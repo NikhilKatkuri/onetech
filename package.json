@@ -8,13 +8,14 @@
     "create-onetech-app": "./dist/cli/main.js"
   },
   "scripts": {
-    "test": "npx tsx src/core/file.ts",
+    "test": "npx tsx src/cli/main.js",
+    "gen:files": "npx tsx src/core/gen.file.ts",
     "build": "tsc",
     "clean": "rimraf dist",
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add . && git commit -m \"🚀 feat(cli): bootstrap onetech CLI with initial command structure and TypeScript setup\" && git push origin main"
+    "push": "git add . && git commit -m \"🚀 feat(files):  generate template folders and starter files for tech stacks\" && git push origin main"
   },
   "keywords": [
     "onetech",
