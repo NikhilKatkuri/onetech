@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="./logo.svg" alt="OneTech Logo" width="320" height="320" />
+  <img src="./assets/OneTech_Logo.png" alt="OneTech Logo" width="320" height="320" />
+</p>
+<p align="center">
+  <img src="./assets/OneTech.png" alt="OneTech Logo" height="124" />
 </p>
 
 
@@ -58,9 +61,19 @@ create-onetech-app
 
 # 📄 License
 
-⚠️ MIT License is applied for development and preview purposes only. License terms may be updated before the official public release.
+This repository is licensed under the MIT License for development and preview purposes.
+
+⚠️ Note: The OneTech logo and branding assets (OneTech_Logo.png, OneTech.png) are not covered under the MIT License.
+These assets are protected and cannot be copied, modified, or redistributed without explicit permission from the author.
+
+For usage inquiries related to branding, please contact Nikhil Katkuri.<br/>
+- <a href="./LICENSE.txt">Learn more</a><br/>
+- <a href="./brand.txt">Brand Assets</a>
 
 # ✍️ Author
 
 - Nikhil Katkuri
-- GitHub: [@NikhilKatkuri](https://github.com/NikhilKatkuri)
+- GitHub: [@NikhilKatkuri](https://github.com/NikhilKatkuri) 
+- LinkedIn : [@NikhilKatkuri](https://www.linkedin.com/in/katkurinikhil)
+
+ 

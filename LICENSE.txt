@@ -19,3 +19,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+🚫 EXCEPTION — BRANDING & VISUAL ASSETS
+
+The name *OneTech*, its associated logos (onetech_logo.png, OneTech_Brand.png, OneTech_*{.svg,.png}), color schemes, and branding designs are *not licensed* under the MIT License.
+
+These assets are the exclusive property of *Nikhil Katkuri* and are protected by copyright and design rights.
+
+You may *not* use, copy, modify, redistribute, or rebrand them in any form without *explicit written permission* from the author.
+
+For branding permissions, contact: [https://github.com/NikhilKatkuri](https://github.com/NikhilKatkuri)
