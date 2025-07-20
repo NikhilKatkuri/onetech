@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.svg" alt="OneTech Logo" height="256" />
+  <img src="./logo.svg" alt="OneTech Logo" width="320" height="320" />
 </p>
 
 
