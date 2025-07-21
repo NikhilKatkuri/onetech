@@ -16,7 +16,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add . && git commit -m \"fix: resolve minor bug in project setup flow\" && git push origin main"
+    "push": "git add . && git commit -m \"docs: add nikhilkatkuri as a contributor\" && git push origin main"
   },
   "keywords": [
     "onetech",
@@ -47,6 +47,7 @@
   "homepage": "",
   "devDependencies": {
     "@types/node": "^24.0.14",
+    "all-contributors-cli": "^6.26.1",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"

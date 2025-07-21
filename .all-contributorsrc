@@ -1,0 +1,25 @@
+{
+  "projectName": "onetech",
+  "projectOwner": "nikhilkatkuri",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "CONTRIBUTING.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "NikhilKatkuri",
+      "name": "KATKURI NIKHIL ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/202576342?v=4",
+      "profile": "https://portfilo-livid.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
