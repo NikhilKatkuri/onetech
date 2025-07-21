@@ -1,3 +1,4 @@
+// files
 type UserPathValidate = {
   location: string;
   isEmpty: boolean;

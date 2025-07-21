@@ -2,49 +2,8 @@ import inquirer from "inquirer";
 import { PromptType } from "../models/promt.js";
 import TechData from "../data/TechStack.js";
 
-function validateProjectName(input: string): boolean | string {
-  const trimmed = input.trim();
-
-  if (!trimmed) return "Project name cannot be empty.";
-
-  // Cross-platform invalid characters
-  const invalidChars = /[<>:"/\\|?*\x00-\x1F]/g;
-  if (invalidChars.test(trimmed)) {
-    return 'Name contains invalid characters: <>:"/\\|?* or control characters.';
-  }
-
-  // Unix (Linux/macOS): disallow forward slash
-  if (trimmed.includes("/")) {
-    return "Name cannot contain '/' (used as path separator on Unix).";
-  }
-
-  // Windows: reserved names
-  const reserved = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
-  if (reserved.test(trimmed)) {
-    return "This name is reserved by the system. Choose a different name.";
-  }
-
-  // Windows: trailing dot or space not allowed
-  if (/[. ]$/.test(trimmed)) {
-    return "Name cannot end with a dot or space (Windows limitation).";
-  }
-
-  // macOS (HFS+): colon is not allowed
-  if (trimmed.includes(":")) {
-    return "Colon ':' is not allowed in folder names (macOS restriction).";
-  }
-
-  // Max length safety
-  if (trimmed.length > 255) {
-    return "Name is too long (max 255 characters).";
-  }
-
-  return true;
-}
-
 class prompt {
-  // constructor(private techstack: any) {}
-
+  // main function of promt taking via inqurirer
   private async Prompts({
     type,
     name,
@@ -79,18 +38,76 @@ class prompt {
     }
   }
 
+  // takes input of projectname
   public async projectname() {
     const query: PromptType = {
       type: "input",
       name: "projectname",
       message: "Give a name of your project",
-      validate: validateProjectName,
+      validate: this.validateProjectName,
     };
 
     const answer = await this.Prompts(query);
     return answer;
   }
+  // projectname/dir  validator
+  public validateProjectName(
+    input: string,
+    t: boolean = false
+  ): boolean | string {
+    const trimmed = input.trim();
 
+    if (!trimmed) return !t ? "Project name cannot be empty." : false;
+
+    // Cross-platform invalid characters
+    const invalidChars = /[<>:"/\\|?*\x00-\x1F]/g;
+    if (invalidChars.test(trimmed)) {
+      return !t
+        ? 'Name contains invalid characters: <>:"/\\|?* or control characters.'
+        : false;
+    }
+
+    // Unix (Linux/macOS): disallow forward slash
+    if (trimmed.includes("/")) {
+      return !t
+        ? "Name cannot contain '/' (used as path separator on Unix)."
+        : false;
+    }
+    // onetech (rule): - should not startwith
+    if (trimmed.startsWith("-")) {
+      return !t ? "Name should not start with '-'." : false;
+    }
+
+    // Windows: reserved names
+    const reserved = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
+    if (reserved.test(trimmed)) {
+      return !t
+        ? "This name is reserved by the system. Choose a different name."
+        : false;
+    }
+
+    // Windows: trailing dot or space not allowed
+    if (/[. ]$/.test(trimmed)) {
+      return !t
+        ? "Name cannot end with a dot or space (Windows limitation)."
+        : false;
+    }
+
+    // macOS (HFS+): colon is not allowed
+    if (trimmed.includes(":")) {
+      return !t
+        ? "Colon ':' is not allowed in folder names (macOS restriction)."
+        : false;
+    }
+
+    // Max length safety
+    if (trimmed.length > 255) {
+      return !t ? "Name is too long (max 255 characters)." : false;
+    }
+
+    return true;
+  }
+  // takes input of Base (eg:<vite>,<flutter>,<nextjs>)
   public async projectBase() {
     const query: PromptType = {
       type: "list",
@@ -102,6 +119,7 @@ class prompt {
     const answer = this.Prompts(query);
     return answer;
   }
+  // takes input of lang (eg:javascript|typescript)
   public async projectLang(langs: string[]) {
     const query: PromptType = {
       type: "list",
@@ -113,6 +131,7 @@ class prompt {
     const answer = await this.Prompts(query);
     return answer;
   }
+  // takes input of prebuilt templates like app-tw(base+tailwind setup) app-firebase(base+firebas setup)
   public async projectTemplates(templates: string[]) {
     const query: PromptType = {
       type: "list",

@@ -1,4 +1,4 @@
-import { TechEntry } from "../models/techstack.js";
+import {  TechEntry } from "../models/techstack.js";
 
 const TechData: TechEntry[] = [
   {
@@ -47,4 +47,4 @@ const TechData: TechEntry[] = [
   },
 ];
 
-export default TechData
+export default TechData;

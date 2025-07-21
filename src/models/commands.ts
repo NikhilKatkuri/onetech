@@ -1,13 +1,7 @@
+// declare sperately for any update in it to make reusable
 type CMD = {
   name: string;
-  cmd: string[];
-  excuter?:string;
-  description?: string;
-  default?: boolean;
-  projectDir?:string;
+  cmd?: string | string[];
 };
-
- 
-
 
 export type { CMD };

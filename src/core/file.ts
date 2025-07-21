@@ -64,5 +64,4 @@ const userPathValidate = async (
   }
 };
 
- 
 export { userPath, templateDir, userPathValidate };
