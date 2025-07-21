@@ -16,7 +16,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add . && git commit -m \"Rewrite: Updated CLI logic, prompts, and config handling\" && git push origin main"
+    "push": "git add . && git commit -m \"fix: resolve minor bug in project setup flow\" && git push origin main"
   },
   "keywords": [
     "onetech",

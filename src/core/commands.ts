@@ -197,12 +197,18 @@ class commands {
       dir: path.join(dir),
       ...(techConfig as TechConfig),
     };
-
+    if (
+      finalconfig.base === "flutter" &&
+      (finalconfig.lang === "js" || finalconfig.lang === "ts")
+    ) {
+      console.log(chalk.red("note: flutter is a framework of js."));
+      console.log("ref : "+chalk.grey("https://flutter.dev/learn"));
+    }
     // excetution path to clone prebuilt templates based promts
     let executionPath = path.join(
       templateDir,
       finalconfig.base,
-      finalconfig.lang,
+      finalconfig.base === "flutter" ? "" : finalconfig.lang,
       finalconfig.template,
       "onetech.js"
     );
