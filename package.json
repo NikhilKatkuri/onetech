@@ -9,13 +9,14 @@
   },
   "scripts": {
     "test": "npx tsx src/cli/main.js",
+    "test:prompt": "npx tsx src/core/promt.ts",
     "gen:files": "npx tsx src/core/gen.file.ts",
     "build": "tsc",
     "clean": "rimraf dist",
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add . && git commit -m \"fix: add verbose output support to command executor in CLI run method\" && git push origin main"
+    "push": "git add . && git commit -m \"feat(cli): add fallback prompt when no CLI args are passed & error handling\" && git push origin main"
   },
   "keywords": [
     "onetech",

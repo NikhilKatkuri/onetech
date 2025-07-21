@@ -138,6 +138,7 @@ async function getValidProjectName(initial: string): Promise<string> {
 
 class commands {
   private cmdCli: CMD | undefined = undefined;
+  private prompt = new prompt();
   constructor(private args: any) {}
 
   // Parses CLI arguments and configures internal state accordingly
@@ -146,7 +147,34 @@ class commands {
 
     // Case 1: No arguments passed
     if (Args.length === 0) {
-      this.cmdCli = undefined;
+      const name: string = await this.prompt.projectname();
+      const base: string = await this.prompt.projectBase();
+      let lang: string;
+      if (base === "flutter") {
+        lang = TechData.filter((b) => b.base === base).map(
+          (b) => b.lang
+        )[0] as string;
+      } else {
+        lang = await this.prompt.projectLang(
+          TechData.filter((b) => b.base === base)[0].lang as string[]
+        );
+      }
+      const templates = await this.prompt.projectTemplates(
+        TechData.filter((b) => b.base === base)[0].templates
+      );
+      const excutionPath = path.join(
+        templateDir,
+        base,
+        base !== "flutter" ? lang : "",
+        templates
+      );
+      const valDir = await getValidProjectName(name);
+      this.cmdCli = {
+        name: "main",
+        cmd: [],
+        excuter: excutionPath,
+        projectDir: valDir,
+      };
       return false;
     }
     // Case 2: Only one command passed (e.g, --help or --version)
@@ -156,7 +184,7 @@ class commands {
       );
 
       this.cmdCli = news;
-        return false;
+      return false;
     }
     // Case 3: More than one argument, treat as project setup
     else if (Args.length >= 1) {

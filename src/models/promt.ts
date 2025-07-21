@@ -3,7 +3,7 @@ type PromptType<T = any> = {
   name: string;
   message: string;
   validate?: (input: T) => boolean | string | Promise<boolean | string>;
-  choices?: Array<string | { name: string; value: T }>;
+  choices?: string[];
   default?: T;
 };
 
