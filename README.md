@@ -76,4 +76,7 @@ For usage inquiries related to branding, please contact Nikhil Katkuri.<br/>
 - GitHub: [@NikhilKatkuri](https://github.com/NikhilKatkuri) 
 - LinkedIn : [@NikhilKatkuri](https://www.linkedin.com/in/katkurinikhil)
 
- 
+### 👉 Contribution Guide 
+-  [Contribution](./CONTRIBUTING.md)
+-  [Contribution Guide](./Docs/HOW_TO_CONTRIBUTE.md)
+
