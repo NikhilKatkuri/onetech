@@ -42,9 +42,9 @@ const App = () => {
             experience.
           </p> 
           <p className="text-sm text-neutral-500  max-w-md text-center my-2 ">
-            <p className="">start editing : <code className="px-2 py-2 bg-black/5 dark:bg-white/5 rounded-md">
+            <span className="">start editing : <code className="px-2 py-2 bg-black/5 dark:bg-white/5 rounded-md">
               app/App.jsx
-             </code></p>
+             </code></span>
              
           </p>
         </div>
