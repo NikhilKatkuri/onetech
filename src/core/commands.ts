@@ -202,21 +202,21 @@ class commands {
       (finalconfig.lang === "js" || finalconfig.lang === "ts")
     ) {
       console.log(chalk.red("note: flutter is a framework of js."));
-      console.log("ref : "+chalk.grey("https://flutter.dev/learn"));
+      console.log("ref : " + chalk.grey("https://flutter.dev/learn"));
     }
     // excetution path to clone prebuilt templates based promts
     let executionPath = path.join(
       templateDir,
       finalconfig.base,
       finalconfig.base === "flutter" ? "" : finalconfig.lang,
-      finalconfig.template,
-      "onetech.js"
+      finalconfig.template
     );
 
+    const onetech = path.join(templateDir, "..", "dist", "core", "onetech.js");
     // cli
     this.cmdCli = {
       name: "main",
-      cmd: `node ${executionPath}  ${finalconfig.dir}`,
+      cmd: `node ${onetech} ${finalconfig.dir} ${executionPath} `,
     };
 
     return verbose;

@@ -14,7 +14,7 @@
     "build": "tsc",
     "clean": "rimraf dist",
     "clean:build": "rimraf dist && npm run build",
-    "dev:link": "npm run clean:build && npm link",
+    "dev:link": "npm run clean:build && npm link", 
     "start": "node ./dist/cli/main.js",
     "push": "git add -A  && git commit -m \"fix(hydration): resolved error due to <p> tag descendant\" && git push origin experiment/app-tw"
   },
