@@ -86,13 +86,6 @@ class prompt {
         : false;
     }
 
-    // Windows: trailing dot or space not allowed
-    if (/[. ]$/.test(trimmed)) {
-      return !t
-        ? "Name cannot end with a dot or space (Windows limitation)."
-        : false;
-    }
-
     // macOS (HFS+): colon is not allowed
     if (trimmed.includes(":")) {
       return !t

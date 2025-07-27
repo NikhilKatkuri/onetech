@@ -20,7 +20,7 @@ const TechData: TechEntry[] = [
       "app-firebase", // Firebase integrated app
       "app-backend", // Backend (Node.js/Express) setup
       "app-tw-firebase", // Tailwind + Firebase
-      "app-tw-firebase-backend", // Fullstack: UI + Firebase + Backend
+      "app-fullstack", // Fullstack: UI + Firebase + Backend
     ],
   },
   {

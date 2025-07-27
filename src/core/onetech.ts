@@ -38,7 +38,7 @@ async function __main__() {
     // Setup project folder
     fs.cpSync(templatepath, destination, { recursive: true });
     // 🔧 Rename files
-    renameUnderscoreFiles(templatepath);
+    renameUnderscoreFiles(destination);
 
     // Final success message
     console.log(chalk.blueBright("OneTech Project Setup Complete"));
