@@ -16,7 +16,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add -A  && git commit -m \"fix(destination-files): resolved error due to  _ in destination files\" && git push origin main"
+    "push": "git add -A  && git commit -m \"feat(add): added new feature - template vite-ts\" && git push origin exp/app-tw"
   },
   "keywords": [
     "onetech",

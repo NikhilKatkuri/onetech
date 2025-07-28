@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Supports weights 100-900 */
+@import '@fontsource-variable/outfit';
+
+body {
+  font-family: 'Outfit Variable', sans-serif;
+}
