@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const ThemeToggler = () => {
-  const { setTheme, theme } = useContext(ThemeContext);
+  const { toggleTheme, theme } = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Map index to theme
@@ -10,16 +10,16 @@ const ThemeToggler = () => {
 
   // Sync activeIndex with current theme on mount
   useEffect(() => {
+    const themes = ["system", "light", "dark"];
     const index = themes.indexOf(theme);
     if (index !== -1) {
       setActiveIndex(index);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
   const handleThemeClick = (index) => {
     const selectedTheme = themes[index];
-    setTheme(selectedTheme);
+    toggleTheme(selectedTheme);
     setActiveIndex(index);
   };
 
