@@ -16,7 +16,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add -A && git commit -m \"feat(init): auto-update package.json name to match destination folder\" && git push origin main"
+    "push": "git add -A && git commit -m \"chore(release): prepare v0.1.0 for initial npm publish\" && git push origin main"
   },
   "keywords": [
     "onetech",
@@ -42,7 +42,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/NikhilKatkuri/onetech"
   },
   "homepage": "",
   "devDependencies": {

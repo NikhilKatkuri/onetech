@@ -38,15 +38,12 @@ function help() {
     `  ${chalk.yellow("--stacks")}               Add stacks like tailwind, firebase`
   );
   console.log(
-    `  ${chalk.yellow("--usenpm")}               Use npm instead of yarn`
-  );
-  console.log(
     `  ${chalk.yellow("-h, --help")}             Show this help message\n`
   );
 
   console.log(`${chalk.bold("Example:")}`);
   console.log(
-    `  create-onetech-app my-app --template vite-react --lang ts --stacks tailwind,firebase --usenpm --verbose\n`
+    `  create-onetech-app my-app --template=vite --lang=ts --template=app-tw --verbose\n`
   );
 }
 

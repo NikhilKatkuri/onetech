@@ -1,6 +1,6 @@
-import {  TechEntry } from "../models/techstack.js";
+import { TechEntry } from "../models/techstack.js";
 
-const TechData: TechEntry[] = [
+export const TechDataPlan: TechEntry[] = [
   {
     base: "flutter",
     lang: "dart",
@@ -43,6 +43,17 @@ const TechData: TechEntry[] = [
       "app-nextjs", // Electron + Next.js
       "app-cra", // Electron + Create React App
       "app-clean-architecture", // Modular architecture pattern
+    ],
+  },
+];
+
+const TechData: TechEntry[] = [
+  {
+    base: "vite",
+    lang: ["ts", "js"],
+    templates: [
+      "app-tw",
+      "app-tw-firebase", // Tailwind + Firebase 
     ],
   },
 ];
