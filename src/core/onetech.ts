@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import fs from "fs";
-import path from "path"; 
+import path from "path";
 
 // Enable color support
 chalk.level = 3;
@@ -27,6 +27,21 @@ function renameUnderscoreFiles(dir: any) {
   }
 }
 
+// Update package.json name
+function updatePackageName(destination: string) {
+  const pkgPath = path.join(destination, "package.json");
+  if (fs.existsSync(pkgPath)) {
+    try {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
+      const folderName = path.basename(destination);
+      pkg.name = folderName;
+      fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+    } catch (err) {
+      console.error(chalk.red("Failed to update package.json"), err);
+    }
+  }
+}
+
 async function __main__() {
   try {
     if (!args) {
@@ -39,7 +54,8 @@ async function __main__() {
     fs.cpSync(templatepath, destination, { recursive: true });
     // 🔧 Rename files
     renameUnderscoreFiles(destination);
-
+    // 🔄 Replace name in package.json
+    updatePackageName(destination);
     // Final success message
     console.log(chalk.blueBright("OneTech Project Setup Complete"));
     console.log(
@@ -53,7 +69,6 @@ async function __main__() {
       error instanceof Error ? error.message : error
     );
   }
- 
 }
 
 await __main__();
