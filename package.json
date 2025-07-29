@@ -1,12 +1,22 @@
 {
-  "name": "onetech",
-  "version": "1.0.0",
+  "name": "create-onetech-app",
+  "version": "0.1.0",
   "description": "CLI to quickly set up React projects with popular templates and tools.",
   "main": "./dist/cli/main.js",
   "type": "module",
   "bin": {
     "create-onetech-app": "./dist/cli/main.js"
   },
+  "files": [
+    "dist",
+    "templates",
+    "assets",
+    "Docs",
+    "brand.txt",
+    "LICENSE.txt",
+    "CONTRIBUTING.md",
+    "README.md"
+  ],
   "scripts": {
     "test": "npx tsx src/cli/main.js",
     "test:prompt": "npx tsx src/core/promt.ts",
@@ -16,7 +26,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add -A && git commit -m \"chore(release): prepare v0.1.0 for initial npm publish\" && git push origin main"
+    "push": "git add -A && git commit -m \"chore(release): prepare v0.1.0 for initial npm publish (correction)\" && git push origin main"
   },
   "keywords": [
     "onetech",
