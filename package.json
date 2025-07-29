@@ -26,7 +26,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add -A && git commit -m \"chore(release): prepare v0.1.0 for initial npm publish (correction)\" && git push origin main"
+    "push": "git add -A && git commit -m \"fixed\" && git push origin main"
   },
   "keywords": [
     "onetech",
