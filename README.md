@@ -7,7 +7,7 @@
   
   [![GitHub Stars](https://img.shields.io/github/stars/NikhilKatkuri/onetech?style=social)](https://github.com/NikhilKatkuri/onetech)
   [![NPM Version](https://img.shields.io/npm/v/create-onetech-app.svg?style=flat-square)](https://www.npmjs.com/package/create-onetech-app)
-  [![License](https://img.shields.io/npm/l/create-onetech-app?style=flat-square)](https://github.com/NikhilKatkuri/onetech/blob/main/LICENSE.txt)
+ [![License](https://img.shields.io/npm/l/create-onetech-app?style=flat-square)](https://github.com/NikhilKatkuri/onetech/blob/main/LICENSE)
   [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
   [![Issues](https://img.shields.io/github/issues/NikhilKatkuri/onetech?style=flat-square)](https://github.com/NikhilKatkuri/onetech/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/NikhilKatkuri/onetech?style=flat-square)](https://github.com/NikhilKatkuri/onetech/pulls)
