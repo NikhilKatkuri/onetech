@@ -72,12 +72,6 @@ npx create-onetech-app my-app
 
 # Using npm
 npm create onetech-app my-app
-
-# Using yarn
-yarn create onetech-app my-app
-
-# Using pnpm
-pnpm create onetech-app my-app
 ```
 
 ### Interactive Setup
