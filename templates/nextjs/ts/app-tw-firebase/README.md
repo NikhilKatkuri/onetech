@@ -14,7 +14,7 @@ npx create-onetech-app my-app --base=nextjs --lang=ts --template=app-tw-firebase
 
 This template provides everything you need to build modern web applications:
 
-- ⚡ **Next.js 14** with App Router and Server Components
+- ⚡ **Next.js 15** with App Router and Server Components
 - 🔥 **Firebase Integration** - Authentication, Firestore, and Storage ready
 - 🎨 **Tailwind CSS** with dark mode support
 - 📱 **Responsive Design** optimized for all devices
@@ -209,15 +209,6 @@ export default function ThemeButton() {
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [React Documentation](https://react.dev/)
 
-## 📞 Support & Community
-
-Get help and connect with the OneTech community:
-
-- 📖 **Documentation**: [OneTech Docs](https://onetech.dev/docs)
-- 💬 **Community**: [Discord Server](https://discord.gg/onetech)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/NikhilKatkuri/onetech/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/NikhilKatkuri/onetech/discussions)
-- 📧 **Email**: support@onetech.dev
 
 ## 🙏 Acknowledgments
 
@@ -231,7 +222,7 @@ This template is part of the OneTech open-source initiative, built with ❤️ f
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
 
 ---
 
