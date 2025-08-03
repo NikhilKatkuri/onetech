@@ -91,6 +91,8 @@ npx create-onetech-app
 | `vite-app-tw`       | TypeScript | Vite + React + TypeScript + Tailwind CSS |
 | `vite-app-firebase` | JavaScript | Vite + React + Firebase                  |
 | `vite-app-firebase` | TypeScript | Vite + React + TypeScript + Firebase     |
+| `nextjs-app-tw-firebase` | JavaScript | Next.js + React + Tailwind CSS + Firebase |
+| `nextjs-app-tw-firebase` | TypeScript | Next.js + React + TypeScript + Tailwind CSS + Firebase |
 
 ### Fullstack Templates
 
@@ -122,13 +124,21 @@ cd my-app
 npm run dev
 ```
 
+### Create a Next.js app with TypeScript, Tailwind, and Firebase
+
+```bash
+npx create-onetech-app my-app --base=nextjs --lang=ts --template=app-tw-firebase
+cd my-app
+npm run dev
+```
+
 ## ⚙️ CLI Options
 
 ```bash
 create-onetech-app [project-name] [options]
 
 Options:
-  --base:<framework/tool>  Base avalible vite (currently)
+  --base:<framework/tool>  Base available: vite, nextjs
   --template <template>    Template to use (default: interactive)
   --lang <language>    Language preference (js/ts)
   -v, --version               Display version number
@@ -137,6 +147,7 @@ Options:
 Examples:
   create-onetech-app my-app
   npx create-onetech-app my-app --base=vite --lang=ts --template=app-tw
+  npx create-onetech-app my-app --base=nextjs --lang=ts --template=app-tw-firebase
 ```
 
 ## 🛠️ Development
