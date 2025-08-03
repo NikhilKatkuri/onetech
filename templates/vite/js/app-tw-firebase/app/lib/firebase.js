@@ -1,4 +1,4 @@
-// app/services/Authentication.ts
+// app/lib/firebase.js
 // This file is responsible for Firebase authentication services.
 
 // Import the functions you need from the SDKs you need

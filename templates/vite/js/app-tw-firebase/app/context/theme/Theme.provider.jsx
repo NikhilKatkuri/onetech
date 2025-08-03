@@ -1,7 +1,5 @@
-import { createContext, useState, useEffect } from "react";
-
-// Create the ThemeContext
-const ThemeContext = createContext();
+import { useState, useEffect } from "react";
+import { ThemeContext } from "./Theme.context";
 
 const getSystemTheme = () =>
   window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -46,4 +44,4 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
-export { ThemeProvider, ThemeContext };
+export default ThemeProvider;

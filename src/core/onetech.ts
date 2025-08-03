@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import fs from "fs";
-import path from "path";
-
+import path, { basename } from "path";
+import TechData from "../data/TechStack.js";
 // Enable color support
 chalk.level = 3;
 
@@ -57,12 +57,20 @@ async function __main__() {
     // 🔄 Replace name in package.json
     updatePackageName(destination);
     // Final success message
-    console.log(chalk.blueBright("OneTech Project Setup Complete"));
-    console.log(
-      "Project created at: " + chalk.green(`${chalk.bold(destination)}`)
+
+    const templateName = TechData.find((tech) =>
+      templatepath.includes(tech.base)
     );
-    console.log(chalk.yellow("You can now start building your vite app."));
-    console.log(chalk.gray("Happy coding."));
+
+    console.log(
+      chalk.whiteBright(
+        `Creating a new ${templateName?.base} app in ${chalk.greenBright(destination)}`
+      )
+    );
+    console.log(
+      `cd ${path.basename(destination)} ${templateName?.base !== "flutter" && "\nnpm install"}`
+    ); 
+    console.log("Happy coding.");
   } catch (error) {
     console.error(
       chalk.red("Error:"),

@@ -29,11 +29,11 @@ class prompt {
       return answer[name];
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.error("❌ Prompt error:", error.message);
+        console.error("Prompt error:", error.message);
       } else {
-        console.error("❌ An unknown error occurred during prompt.");
+        console.error("An unknown error occurred during prompt.");
       }
-      console.log("🔻 Cleaning up before exit...");
+      console.log("🔻Cleaning up before exit...");
       process.exit(1);
     }
   }
@@ -43,7 +43,7 @@ class prompt {
     const query: PromptType = {
       type: "input",
       name: "projectname",
-      message: "Give a name of your project",
+      message: " Give a name of your project",
       validate: this.validateProjectName,
     };
 
@@ -57,7 +57,7 @@ class prompt {
   ): boolean | string {
     const trimmed = input.trim();
 
-    if (!trimmed) return !t ? "Project name cannot be empty." : false;
+    if (!trimmed) return !t ? " Project name cannot be empty." : false;
 
     // Cross-platform invalid characters
     const invalidChars = /[<>:"/\\|?*\x00-\x1F]/g;
@@ -105,7 +105,7 @@ class prompt {
     const query: PromptType = {
       type: "list",
       name: "Base",
-      message: "choose your base",
+      message: " choose your base",
       choices: TechData.map((items) => items.base),
     };
 
@@ -117,7 +117,7 @@ class prompt {
     const query: PromptType = {
       type: "list",
       name: "Lang",
-      message: "choose lang",
+      message: " choose lang",
       choices: langs,
     };
 
@@ -129,13 +129,14 @@ class prompt {
     const query: PromptType = {
       type: "list",
       name: "template",
-      message: "choose templates",
+      message: " choose templates",
       choices: templates,
     };
 
     const answer = await this.Prompts(query);
     return answer;
   }
+ 
 }
 
 export default prompt;

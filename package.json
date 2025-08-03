@@ -26,7 +26,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add -A && git commit -m \"fixes:  nextjs+firebase in javascript\" && git push origin main"
+    "push": "git add -A && git commit -m \"feat: major refactor and fixes for CLI execution flow and template handling\" && git push origin main"
   },
   "keywords": [
     "onetech",

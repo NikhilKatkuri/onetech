@@ -1,12 +1,12 @@
 import type { User } from "firebase/auth";
 import { createContext } from "react";
 
-interface AuthContextTypes {
+interface FirebaseContextTypes {
   user: User | null;
   setUser?: (user: User | null) => void;
 }
 
-const AuthContext = createContext<AuthContextTypes | undefined>(undefined);
+const FirebaseContext = createContext<FirebaseContextTypes | undefined>(undefined);
 
-export { AuthContext };
+export { FirebaseContext };
 

@@ -1,12 +1,9 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { AuthContext } from "./Auth.context";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../lib/firebase";
-
-import type { User } from "firebase/auth";
-
-const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+import { useEffect, useState } from "react";
+import { auth } from "../../lib/firebase"; 
+import { FirebaseContext } from "./firebase.context.jsx";
+export const FirebaseProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (import.meta.env.VITE_DEV === "development") {
@@ -23,18 +20,17 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // // Debugging: Log user state changes
+  // Debugging: Log user state changes
   // useEffect(() => {
   //   console.log("User state changed:", user);
   // }, [user]);
-  // // Debugging: Log auth object
+  // Debugging: Log auth object
   // useEffect(() => {
   //   console.log("Auth object:", auth);
   // }, []);
-  // // Debugging: Log auth state listener
+  // Debugging: Log auth state listener
+
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <FirebaseContext.Provider value={{ user }}>{children}</FirebaseContext.Provider>
   );
 };
-
-export default AuthProvider;

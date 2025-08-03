@@ -56,6 +56,13 @@ const TechData: TechEntry[] = [
       "app-tw-firebase", // Tailwind + Firebase 
     ],
   },
+  {
+    base: "nextjs",
+    lang: ["ts", "js"],
+    templates: [ 
+      "app-tw-firebase", // Tailwind + Firebase 
+    ],
+  },
 ];
 
 export default TechData;

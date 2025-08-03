@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../context/ThemeContext";
-
+import React, { useContext, useEffect, useState } from "react"; 
+import { ThemeContext } from "../context/theme/Theme.context";
 const ThemeToggler = () => {
   const { toggleTheme, theme } = useContext(ThemeContext);
   const [activeIndex, setActiveIndex] = useState(0);
