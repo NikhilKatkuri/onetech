@@ -1,6 +1,6 @@
 {
   "name": "create-onetech-app",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "CLI to quickly set up React projects with popular templates and tools.",
   "main": "./dist/cli/main.js",
   "type": "module",
