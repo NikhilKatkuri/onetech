@@ -26,7 +26,7 @@
     "clean:build": "rimraf dist && npm run build",
     "dev:link": "npm run clean:build && npm link",
     "start": "node ./dist/cli/main.js",
-    "push": "git add -A && git commit -m \"fix:test ready\" && git push origin main"
+    "push": "git add -A && git commit -m \"doc(update):README update for app-i18n\" && git push origin main"
   },
   "keywords": [
     "onetech",
@@ -35,12 +35,19 @@
     "javascript",
     "typescript",
     "react",
+    "nextjs",
+    "next.js",
     "vite",
     "webpack",
     "cra",
     "template-generator",
     "frontend",
     "fullstack",
+    "firebase",
+    "tailwind",
+    "authentication",
+    "dashboard",
+    "i18n",
     "project-scaffold",
     "automation",
     "boilerplate",

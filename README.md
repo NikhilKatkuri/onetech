@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/OneTech_Logo.png" width="120" alt="OneTech Logo" />
+  <img src="./assets/OneTech_Logo.svg" alt="OneTech Logo" />
   
   # Create OneTech App
   
@@ -46,14 +46,16 @@
 
 ## ✨ Features
 
-- ⚡ **Lightning Fast Setup** with [Vite](https://vitejs.dev)
+- ⚡ **Lightning Fast Setup** with [Vite](https://vitejs.dev) and [Next.js](https://nextjs.org)
 - 🌐 **Multiple Frameworks**: React, Next.js, Electron, Flutter
 - 💻 **Language Support**: JavaScript & TypeScript
 - 🎨 **Styling Options**: Tailwind CSS, vanilla CSS
-- 🔥 **Backend Integration**: Firebase, custom backends
-- 📱 **State Management**: Zustand, Context API
-- 🌍 **Internationalization**: i18next support
-- � **Routing**: React Router, Next.js routing
+- 🔥 **Backend Integration**: Firebase, custom backends, fullstack setups
+- � **Authentication**: Built-in auth templates
+- 📊 **Dashboard Templates**: Ready-to-use admin interfaces
+- �📱 **State Management**: Zustand, Context API
+- 🌍 **Internationalization**: i18next support with Next.js
+- 🛣️ **Routing**: React Router, Next.js App Router
 - 🧪 **Testing Ready**: Jest, Testing Library setup
 - 📚 **Documentation**: Auto-generated README files
 
@@ -85,26 +87,45 @@ npx create-onetech-app
 
 ### Frontend Templates
 
-| Template            | Language   | Features                                 |
-| ------------------- | ---------- | ---------------------------------------- |
-| `vite-app-tw`       | JavaScript | Vite + React + Tailwind CSS              |
-| `vite-app-tw`       | TypeScript | Vite + React + TypeScript + Tailwind CSS |
-| `vite-app-firebase` | JavaScript | Vite + React + Firebase                  |
-| `vite-app-firebase` | TypeScript | Vite + React + TypeScript + Firebase     |
-| `nextjs-app-tw-firebase` | JavaScript | Next.js + React + Tailwind CSS + Firebase |
+| Template                 | Language   | Features                                               |
+| ------------------------ | ---------- | ------------------------------------------------------ |
+| `vite-app-tw`            | JavaScript | Vite + React + Tailwind CSS                            |
+| `vite-app-tw`            | TypeScript | Vite + React + TypeScript + Tailwind CSS               |
+| `vite-app-tw-firebase`   | JavaScript | Vite + React + Tailwind CSS + Firebase                 |
+| `vite-app-tw-firebase`   | TypeScript | Vite + React + TypeScript + Tailwind CSS + Firebase    |
+| `nextjs-app-tw-firebase` | JavaScript | Next.js + React + Tailwind CSS + Firebase              |
 | `nextjs-app-tw-firebase` | TypeScript | Next.js + React + TypeScript + Tailwind CSS + Firebase |
+| `nextjs-app-i18n`        | JavaScript | Next.js + React + Internationalization                 |
+| `nextjs-app-i18n`        | TypeScript | Next.js + React + TypeScript + Internationalization    |
 
-### Fullstack Templates
+### Planned Templates (Coming Soon)
 
-- will be updated
+| Template                          | Language              | Features                                        |
+| --------------------------------- | --------------------- | ----------------------------------------------- |
+| `vite-app-firebase`               | JavaScript            | Vite + React + Firebase                         |
+| `vite-app-firebase`               | TypeScript            | Vite + React + TypeScript + Firebase            |
+| `vite-app-backend`                | JavaScript            | Backend API with Express/Node.js                |
+| `vite-app-backend`                | TypeScript            | Backend API with TypeScript + Express/Node.js   |
+| `vite-app-fullstack`              | JavaScript            | Vite + React + Backend Integration              |
+| `vite-app-fullstack`              | TypeScript            | Vite + React + TypeScript + Backend Integration |
+| `nextjs-app-auth`                 | JavaScript            | Next.js + React + Authentication                |
+| `nextjs-app-auth`                 | TypeScript            | Next.js + React + TypeScript + Authentication   |
+| `nextjs-app-dashboard`            | JavaScript            | Next.js + React + Dashboard UI                  |
+| `nextjs-app-dashboard`            | TypeScript            | Next.js + React + TypeScript + Dashboard UI     |
+| `nextjs-app-fullstack`            | JavaScript            | Next.js + Full-Stack Application                |
+| `nextjs-app-fullstack`            | TypeScript            | Next.js + TypeScript + Full-Stack Application   |
+| `electron-app-vite`               | JavaScript/TypeScript | Electron + Vite                                 |
+| `electron-app-nextjs`             | JavaScript/TypeScript | Electron + Next.js                              |
+| `electron-app-cra`                | JavaScript/TypeScript | Electron + Create React App                     |
+| `electron-app-clean-architecture` | JavaScript/TypeScript | Electron + Clean Architecture                   |
 
 ### Framework-Specific Templates
 
-| Framework    | Templates (Planned)              |
-| ------------ | -------------------------------- |
-| **Next.js**  | Auth, Dashboard, i18n, Fullstack |
-| **Electron** | Desktop apps with React          |
-| **Flutter**  | Mobile apps with Firebase        |
+| Framework    | Available Now                         | Planned                                |
+| ------------ | ------------------------------------- | -------------------------------------- |
+| **Vite**     | Basic (Tailwind), Firebase + Tailwind | Firebase, Backend, Fullstack           |
+| **Next.js**  | Firebase + Tailwind, i18n             | Auth, Dashboard, Fullstack             |
+| **Electron** | -                                     | Vite, Next.js, CRA, Clean Architecture |
 
 ## 💡 Usage Examples
 
@@ -116,7 +137,7 @@ cd my-app
 npm run dev
 ```
 
-### Create a TypeScript React app with Tailwind and Firebase setup
+### Create a Vite app with TypeScript, Tailwind, and Firebase
 
 ```bash
 npx create-onetech-app my-app --base=vite --lang=ts --template=app-tw-firebase
@@ -128,6 +149,14 @@ npm run dev
 
 ```bash
 npx create-onetech-app my-app --base=nextjs --lang=ts --template=app-tw-firebase
+cd my-app
+npm run dev
+```
+
+### Create a Next.js app with Internationalization
+
+```bash
+npx create-onetech-app my-app --base=nextjs --lang=ts --template=app-i18n
 cd my-app
 npm run dev
 ```
@@ -148,6 +177,8 @@ Examples:
   create-onetech-app my-app
   npx create-onetech-app my-app --base=vite --lang=ts --template=app-tw
   npx create-onetech-app my-app --base=nextjs --lang=ts --template=app-tw-firebase
+  npx create-onetech-app my-app --base=nextjs --lang=js --template=app-i18n
+  npx create-onetech-app my-app --base=vite --lang=ts --template=app-tw-firebase
 ```
 
 ## 🛠️ Development
@@ -218,18 +249,27 @@ For detailed guidelines, see:
 
 ## 🗺️ Roadmap
 
-### Current Focus (v1.x)
+### Current Status (v1.2.0)
 
-- ✅ Vite + React templates
-- ✅ TypeScript support
-- ✅ Tailwind CSS integration
-- ✅ Firebase templates
-- 🔄 Testing framework integration
-- 🔄 More state management options
+- ✅ Vite + React + Tailwind templates
+- ✅ Vite + React + Tailwind + Firebase templates
+- ✅ Next.js + React + Tailwind + Firebase templates
+- ✅ Next.js + React + i18n templates
+- ✅ TypeScript & JavaScript support
+- ✅ Interactive CLI prompts
 
-### Upcoming Features (v1.x)
+### Next Release (v1.3.0)
 
-- 📱 React Native templates
+- 🔄 Vite + Firebase (without Tailwind) templates
+- 🔄 Vite backend templates (Express/Node.js)
+- 🔄 Next.js authentication templates
+- 🔄 Next.js dashboard templates
+- 🔄 Vite fullstack templates
+
+### Future Features (v2.x)
+
+- 📱 Flutter mobile templates
+- 🖥️ Electron desktop templates
 - 🔧 Custom template creation
 - 🌐 More backend options
 - 📊 Analytics dashboard
