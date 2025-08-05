@@ -6,8 +6,7 @@ import localeLanguages from "@/config/Languages";
 const LanguageSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const mainPathname = NextNav.usePathname();
-  console.log(mainPathname);
+  const mainPathname = NextNav.usePathname(); 
   const changeLanguage = (lang: string) => {
     router.replace(pathname, { locale: lang });
   };
