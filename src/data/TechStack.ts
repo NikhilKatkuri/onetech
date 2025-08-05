@@ -53,14 +53,15 @@ const TechData: TechEntry[] = [
     lang: ["ts", "js"],
     templates: [
       "app-tw",
-      "app-tw-firebase", // Tailwind + Firebase 
+      "app-tw-firebase", // Tailwind + Firebase
     ],
   },
   {
     base: "nextjs",
     lang: ["ts", "js"],
-    templates: [ 
-      "app-tw-firebase", // Tailwind + Firebase 
+    templates: [
+      "app-tw-firebase", // Tailwind + Firebase
+      "app-i18n", // Internationalization with next-i18next
     ],
   },
 ];
